@@ -1,13 +1,13 @@
 # DJANGO-USER-GUIDE
 This repo contains the gudie to use the django features these are the commonly used features rest of the details can be seen on the django official documentation site.
-# How to connect django with sql servre?
-This works with the django version 4.1 and below so make sure you have the related versions<br>
+# How to connect django with SQL servre?
+This works with the django version 4.1 and below so make sure you have the related versions.
 
 	pip install django==4.1
 	pip install django-mysql
 	pip install mysqlclient
 
-Then Do the following changes in the __settings.py__
+Then do the following changes in the __settings.py__
 
 	  DATABASES = {
 		'default': {
