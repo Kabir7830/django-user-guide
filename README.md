@@ -19,16 +19,15 @@ Then Do the following changes in the __settings.py__
 			'PORT' : '3306',
 			'OPTIONS' : {
 				'init_command':"SET sql_mode='STRICT_TRANS_TABLES'",
-				}
-	
 			}
+	
 		}
+	}
 
 
 # How To Create the Custom User Model in django?
-Follow the steps<br>
-__Creat a user model in models.py__ <br>
-Here is the code
+
+Write this in __models.py__ file
 
 	class CustomUserManager(BaseUserManager):
 	    
@@ -65,6 +64,13 @@ Here is the code
 	    def __str__(self):
 	        return self.email
 
+Now add __"AUTH_USER_MODEL = 'appname.CustomUser'"__ to your __settings.py__
+
+Run the following commands to migrate the created user table
+
+	python manage.py makemigrations
+	python manage.py migrate
+
 # How to use API in django?
 First install the given dependencies
 
@@ -77,9 +83,9 @@ Now create __serializers.py__ file in your app. Then write the serializer classe
  	from rest_framework import serializers
 	from .models import *
 	
-	class CourseSeralizer(serializers.ModelSerializer):
+	class SeralizerName(serializers.ModelSerializer):
 		class Meta:
-			model = Courses
+			model = modelName
 			fields = "__all__" 
    			#or fields = ["name","of","fields","to","include"]
 And our serializer is ready to use
