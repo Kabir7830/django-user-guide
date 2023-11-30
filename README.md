@@ -1,5 +1,5 @@
 # DJANGO-USER-GUIDE
-This repo contains the gudie to use the django features these are the commonly used features rest of the details can be seen on the django official documentation site.
+This repo contains the guide to use the django features, these are the commonly used features rest of the details can be seen on the django official documentation site. <a href="https://docs.djangoproject.com/en/4.2/">Django Docs<a/>
 # How to connect django with SQL servre?
 This works with the django version 4.1 and below so make sure you have the related versions.
 
@@ -23,6 +23,8 @@ Then do the following changes in the __settings.py__
 	
 		}
 	}
+
+Reference: <a href="https://docs.djangoproject.com/en/4.2/ref/databases/">Django Databases</a>
 
 
 # How To Create the Custom User Model in django?
@@ -71,6 +73,9 @@ Run the following commands to migrate the created user table
 	python manage.py makemigrations
 	python manage.py migrate
 
+For more details about user model refer : <a href="https://docs.djangoproject.com/en/4.2/topics/db/models/">Django Models</a>
+
+ 
 # How to use API in django?
 First install the given dependencies
 
@@ -90,5 +95,8 @@ Now create __serializers.py__ file in your app. Then write the serializer classe
    			#or fields = ["name","of","fields","to","include"]
 And our serializer is ready to use
 
+Here is the full documentation for django-rest-frmework : <a href="https://www.django-rest-framework.org/">Django Restframework</a>
 
+
+To learn the web development using Django signup for <a href="https://www.webxter.in">Webxter</a> and enroll for Django Course
 
