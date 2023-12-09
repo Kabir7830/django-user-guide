@@ -93,6 +93,44 @@ Now create __serializers.py__ file in your app. Then write the serializer classe
 			model = modelName
 			fields = "__all__" 
    			#or fields = ["name","of","fields","to","include"]
+
+
+Import the __serializer.py__ in your __views.py__
+
+	from . serializer import *
+ 	from rest_framemork.views import APIView
+  	from rest_framework.response import Response
+
+   	class MyView(APIView):
+
+      		def get(self,request):
+			objs = MyModel.objects.all()
+   			serializer_class = SerializerName(objs,many=True)
+      			return Response({"data":serializer_class.data})
+
+  		def post(self,request):
+    			serializer_class = SerializerName(data=request.data)
+       			if serializer_class.is_valid():
+	  			serializer_class.save()
+      				return Response({"data":serializer_class.data})
+	  		return Response({"error":serializer_class.errors})
+
+     		def put(self,request,id):
+       			obj = MyModel.objects.filter(id = id).first()
+	  		serializer_class = SerializerName(instance=obj,data=request.data)
+     			if serializer_class.is_valid():
+				serializer_class.save()
+    				return Response({"data":serializer_class.data})
+			return Response({"error":serializer_class.errors})
+
+   		def delete(self,request,id):
+     			obj = MyModel.objects.filter(id = id):
+			try:
+   				obj.delete()
+				return Response({"data":"deleted"})
+    			except Exception as e:
+       				return Response({"error":f"couldn't delete! ({e})"})
+      
 And our serializer is ready to use
 
 Here is the full documentation for django-rest-frmework : <a href="https://www.django-rest-framework.org/">Django Restframework</a>
