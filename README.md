@@ -102,22 +102,19 @@ Import the __serializer.py__ in your __views.py__
   	from rest_framework.response import Response
 
    	class MyView(APIView):
-
-      		
+    
 		def get(self,request):
 			objs = MyModel.objects.all()
    			serializer_class = SerializerName(objs,many=True)
       			return Response({"data":serializer_class.data})
-
-  		
-    		def post(self,request):
+	 
+		def post(self,request):
     			serializer_class = SerializerName(data=request.data)
        			if serializer_class.is_valid():
 	  			serializer_class.save()
       				return Response({"data":serializer_class.data})
 	  		return Response({"error":serializer_class.errors})
 
-     		
 		def put(self,request,id):
        			obj = MyModel.objects.filter(id = id).first()
 	  		serializer_class = SerializerName(instance=obj,data=request.data)
@@ -125,8 +122,7 @@ Import the __serializer.py__ in your __views.py__
 				serializer_class.save()
     				return Response({"data":serializer_class.data})
 			return Response({"error":serializer_class.errors})
-
-   		
+   
 		def delete(self,request,id):
      			obj = MyModel.objects.filter(id = id):
 			try:
