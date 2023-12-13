@@ -28,3 +28,11 @@ Add this in your project's __urls.py__
              name ='token_refresh'), 
         path('', include('app.urls')), 
     ] 
+
+Now send a __POST__ request to this api https://yoursite.com/api/token/ (https://120.0.0.1:8000/api/token/ -- for local host)
+
+You will get two token __refresh token__ and __access token__
+
+Use this access token to have to the pages send this token as __Bearer Token__ in the header
+
+    Bearer_token: "token_value";
