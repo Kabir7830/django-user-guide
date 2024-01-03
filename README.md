@@ -12,7 +12,7 @@ Then do the following changes in the __settings.py__
 	  DATABASES = {
 		'default': {
 			'ENGINE': 'django.db.backends.mysql',
-			'NAME': 'allmagnus',
+			'NAME': 'databaseName',
 			'USER': 'root',
 			'PASSWORD': '',
 			'HOST' : 'localhost',
